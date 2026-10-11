@@ -28,6 +28,13 @@ uvicorn main:app --reload --port 8000
 Open **http://localhost:8000** - the backend also serves the frontend. API docs: **http://localhost:8000/docs**.
 (Alternative: serve `frontend/` with VS Code Live Server on port 5500; the frontend then calls the API at localhost:8000, which CORS already allows.)
 
+## Deploy a public demo
+This repository includes a Render Blueprint for deploying the complete app (frontend and FastAPI backend) as one web service. Choose **Deploy to Render** to create it in your Render account:
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2Fkafeel007%2Fstatgenius-ai)
+
+Render generates `SECRET_KEY` for the service. After deployment finishes, open the `onrender.com` URL shown on the service page. The free instance may spin down when idle, and its local SQLite database and uploaded PDFs are temporary; use persistent storage before relying on it for real learner data. No Anthropic API key is needed for demo mode.
+
 ## Demo script (no API key needed)
 1. "Start Learning" -> Demo mode (sample data) -> Dashboard. 2. Assessment -> answer -> Submit (real scores, weak topics, radar).
 3. PDF Learning -> "Use sample PDF" (or upload your own text PDF) -> Generate notes -> Generate quiz (try Mixed).
